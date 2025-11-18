@@ -1,0 +1,94 @@
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 4rem 1.3rem 3.2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 100%;
+  min-height: 70px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.website-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.app-title {
+  font-size: 1.7rem;
+  color: #f59f18;
+  font-weight: 600;
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.18rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #f59f18;
+}
+
+.logout-btn {
+  background: #ff9100;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.45rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: #d97706;
+}
+
+@media (max-width: 900px) {
+  .nav-header {
+    padding: 1rem 1.5rem;
+  }
+  .website-logo {
+    width: 38px;
+    height: 38px;
+  }
+  .app-title {
+    font-size: 1.25rem;
+  }
+  .nav-link {
+    font-size: 1rem;
+  }
+  .logout-btn {
+    font-size: 0.95rem;
+    padding: 0.35rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+  .nav-left {
+    margin-bottom: 0.8rem;
+  }
+  .nav-right {
+    gap: 14px;
+  }
+}

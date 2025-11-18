@@ -1,0 +1,1139 @@
+{
+  "test_case_results": [
+    {
+      "test_case_id": "RJSCPP63AV_TEST_111",
+      "evaluation_result": "INCORRECT",
+      "title": "When HTTP GET of restaurantDetailsAPI is successful, the page should consist of at least two HTML list items, and the food items list should be rendered using a unique key as a prop for each food item ",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_112",
+      "evaluation_result": "INCORRECT",
+      "title": "When an unauthenticated user access the \"/restaurant/:id\" URL in the Restaurant Details Route, then the page should be navigated to Login Route and the Page should consist of Login Route elements",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find a label with the text of: /USERNAME/i"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_113",
+      "evaluation_result": "INCORRECT",
+      "title": "When an authenticated user access the \"/restaurant/:id\" URL in the Restaurant Details Route, then the page should be navigated to Restaurant Details Route and the Page should consist of restaurant name from the HTTP GET restaurants details API",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_114",
+      "evaluation_result": "INCORRECT",
+      "title": "Restaurant Details Route should consist of an HTML image element wrapped with Link from \"react-router-dom\" and alt text as \"website logo\"",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_115",
+      "evaluation_result": "INCORRECT",
+      "title": "Restaurant Details Route should consist of an HTML unordered list element to display the list of items in the Header",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_116",
+      "evaluation_result": "INCORRECT",
+      "title": "Restaurant Details Route should initially consist of at least 4 HTML list items",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_117",
+      "evaluation_result": "INCORRECT",
+      "title": "Restaurant Details Route should consist of an HTML element with text content as \"Home\" wrapped with Link from \"react-router-dom\"",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_118",
+      "evaluation_result": "INCORRECT",
+      "title": "Restaurant Details Route should consist of an HTML element with text content as \"Cart\" wrapped with Link from \"react-router-dom\"",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_119",
+      "evaluation_result": "INCORRECT",
+      "title": "Restaurant Details Route should consist of an HTML button element with \"Logout\" as text content",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_120",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Restaurant Details Route is accessed, an HTTP GET request should be made to restaurants details API with the given restaurants details API URL",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_121",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Restaurant Details Route is opened, an HTML container element with test id attribute value as \"restaurant-details-loader\" should be displayed while the API call is in progress",
+      "errorMessages": [
+        "Error: The element(s) given to waitForElementToBeRemoved are already removed. waitForElementToBeRemoved requires that the element(s) exist(s) before waiting for removal."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_122",
+      "evaluation_result": "INCORRECT",
+      "title": "When the website logo in the Header is clicked, then the page should be navigated to the home route and the Page should consist of the first restaurant name from HTTP GET restaurants list API response",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_123",
+      "evaluation_result": "INCORRECT",
+      "title": "When the home link in the Header is clicked, then the page should be navigated to the home route and the page should consist of the first restaurant name from HTTP GET restaurants list API response",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_124",
+      "evaluation_result": "INCORRECT",
+      "title": "When we click the HTML link element with text \"Cart\" without adding any food item then the HTML main heading element with text content \"No Order Yet!\" should be visible",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_125",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML image element with alt as \"restaurant\" and src equal to the value of the key \"image_url\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find role=\"img\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_126",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML main heading element with text content as the value of the key \"name\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_127",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML paragraph element with text content as the value of the key \"cuisine\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: North Indian, Chinese. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_128",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML paragraph element with text content as the value of the key \"location\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: 1-8-303, Sindhi Colony Rd, Sindhi Colony, Begumpet, Hyderabad, Telangana 500003. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_129",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML paragraph element with text content as the value of the key \"rating\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: 3.4. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_130",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML paragraph element with text content as the value of the key \"reviews_count\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: 345. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_131",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML paragraph element with text content as the value of the key \"cost_for_two\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: 700. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_132",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTTP GET request in the Restaurant Details route is successful, an HTML paragraph element with text content as \"Cost for two\" should be displayed",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Cost for two/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_133",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant Details API is Successful, then the page should contain all the food items with test id attribute value as \"foodItem\" ",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_134",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item should contain the HTML image element with src value as the corresponding Food item image URL",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_135",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item should contain the HTML heading element with text content as the corresponding Food item name",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_136",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item should contain the HTML paragraph element with text content as the corresponding Food item price",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_137",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item should contain the HTML paragraph element with text content as the corresponding Food item rating",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_138",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item should contain the HTML button element with text content as \"Add\"",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_139",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item quantity with test id attribute value \"active-count\" should have the text content as 1, when we click the HTML button with the text \"Add\" in any food item one time",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_140",
+      "evaluation_result": "INCORRECT",
+      "title": "The HTML button element with test id attribute value \"decrement-count\" should be visible, when we click the HTML button with the text \"Add\" in any food item",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_141",
+      "evaluation_result": "INCORRECT",
+      "title": "The HTML button element with test id attribute value \"increment-count\" should be visible, when we click the HTML button with the text \"Add\" in any food item",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_142",
+      "evaluation_result": "INCORRECT",
+      "title": "When we click the HTML button with text \"Add\" in any food item then the \"localStorage.setItem()\" function should be called",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_143",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item quantity should be incremented by 1, when we click the HTML button element with test id attribute value \"increment-count\"",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_144",
+      "evaluation_result": "INCORRECT",
+      "title": "The Food item quantity should be decremented by 1, when we click the HTML button element with test id attribute value \"decrement-count\"",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_145",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Food item quantity is decremented to 0, then the HTML button element with test id attribute value \"decrement-count\" should not be visible to the user",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_146",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Food item quantity with the test id attribute value as \"active-count\" is decremented to 0, then the HTML button element with test id \"active-count\" should not be visible to the user",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_147",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Food item quantity is decremented to 0, then the HTML button element with test id \"increment-count\" should not be visible to the user",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_148",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Food item quantity is decremented to 0, then the HTML button element with text \"Add\" should  be visible to the user",
+      "errorMessages": [
+        "Error: Unable to find role=\"heading\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_67",
+      "evaluation_result": "INCORRECT",
+      "title": "When HTTP GET request of offers API is successful, the page should consist of at least two HTML list items, and the list items should be rendered using a unique key as a prop for each similar list item ",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"listitem\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_68",
+      "evaluation_result": "CORRECT",
+      "title": "When an unauthenticated user accesses the \"/\" URL in Home Route, then the page should be navigated to Login Route and the Page should consist of Login Route elements ",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_69",
+      "evaluation_result": "CORRECT",
+      "title": "When an authenticated user accesses the \"/\" URL in Home Route, then the page should not be navigated to Login Route ",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_70",
+      "evaluation_result": "INCORRECT",
+      "title": "HomeRoute should consist of an HTML image element wrapped with Link from \"react-router-dom\" and alt text as \"website logo\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"link\" and name `/website logo/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_71",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of an HTML unordered list element to display the list of items in the Header",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"list\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_72",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should initially consist of at least 6 HTML list items",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"listitem\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_73",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of an HTML element with text content as \"Home\" wrapped with Link from \"react-router-dom\"",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_74",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of an HTML element with text content as \"Cart\" wrapped with Link from \"react-router-dom\"",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_75",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of an HTML button element with \"Logout\" as text content",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_76",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Home Route is opened, an HTML container element with test id attribute value as \"restaurants-offers-loader\" should be displayed while the API call is in progress ",
+      "errorMessages": [
+        "Error: The element(s) given to waitForElementToBeRemoved are already removed. waitForElementToBeRemoved requires that the element(s) exist(s) before waiting for removal."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_77",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Home Route is opened, an HTML container element with test id attribute value as \"restaurants-list-loader\" should be displayed while the API call is in progress",
+      "errorMessages": [
+        "Error: The element(s) given to waitForElementToBeRemoved are already removed. waitForElementToBeRemoved requires that the element(s) exist(s) before waiting for removal."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_78",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should contain \"react-slick\" third party library to display restaurant offers images",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_79",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Restaurants offers API Home Route is successful, then the page should contain at least 2 HTML images with alt text as \"offer\"",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_80",
+      "evaluation_result": "CORRECT",
+      "title": "When the HTTP GET request in the Home Route is successful, Home Route should consist of an HTML main heading element with \"Popular Restaurants\" as text content",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_81",
+      "evaluation_result": "CORRECT",
+      "title": "Home Route should consist of an HTML paragraph element with \"Select Your favourite restaurant special dish and make your day happy...\" as text content",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_82",
+      "evaluation_result": "CORRECT",
+      "title": "When the Home Route is accessed, an HTTP GET request should be made to restaurants offers API with the given restaurants offers API URL",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_83",
+      "evaluation_result": "CORRECT",
+      "title": "When the Home Route is accessed, an HTTP GET request should be made to restaurants lists API with the given restaurants list API URL",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_84",
+      "evaluation_result": "CORRECT",
+      "title": "When the Home Route is opened, an HTTP GET request should be made to restaurantsListAPI with all the query parameters and their initial values",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_85",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Home Route is opened then the page should contain all the restaurants list items that we get in response with the test id attribute value as \"restaurant-item\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"restaurant-item\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_86",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of HTML paragraph element with text content as \"Sort By\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Found multiple elements with the text: /Sort By/i"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_87",
+      "evaluation_result": "CORRECT",
+      "title": "Home Route should contain an HTML Select ELement with only two options",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_88",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of HTML option elements with text content equal to \"displayText\" of each item in sortByOptions provided",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"option\" and name \"Highest\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_89",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should consist of HTML option elements with value attribute equal to \"value\" of each item in sortByOptions provided",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"option\" and name \"Highest\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_90",
+      "evaluation_result": "INCORRECT",
+      "title": "In the Home Route, the select filter should contain \"Lowest\" as the default selected value",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"option\" and name \"Highest\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_91",
+      "evaluation_result": "INCORRECT",
+      "title": "In the Home Route, the filter value should change when we select different filter option",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"option\" and name \"Highest\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_92",
+      "evaluation_result": "INCORRECT",
+      "title": "Each Restaurant List Item in the Home Route should be wrapped with the \"Link\" from \"react-router-dom\"",
+      "errorMessages": [
+        "\nExpected: >= 6\nReceived:    5"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_93",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the page should contain an HTML element with the test id attribute value as \"active-page-number\" which initially contains the restaurant page number as 1",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_94",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should contain the HTML button element with test id value as \"pagination-right-button\"",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_95",
+      "evaluation_result": "INCORRECT",
+      "title": "Home Route should contain the HTML button element with test id value as \"pagination-left-button\"",
+      "errorMessages": [
+        "\nExpected: > 2\nReceived:   1"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_96",
+      "evaluation_result": "CORRECT",
+      "title": "When the logout button is clicked in the Home Route, then the Cookies.remove() method should be called with the \"jwt_token\" string as an argument",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_97",
+      "evaluation_result": "INCORRECT",
+      "title": "When the logout button is clicked in the Home Route, then the history.replace() method should be called with the argument \"/login\"",
+      "errorMessages": [
+        "\nExpected: \"/login\"\nNumber of calls: 0"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_98",
+      "evaluation_result": "CORRECT",
+      "title": "When the logout button is clicked in the Home Route, then the page should be navigated to LoginRoute and the Login Route should consist of an HTML input element with label text as \"USERNAME\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_99",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurant List item with the test id attribute value as \"restaurant-item\" should contain the HTML image element with src value as restaurant image URL",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"restaurant-item\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_100",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurant List item with the test id attribute value as \"restaurant-item\" should contain the HTML heading element with text content as restaurant name",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"restaurant-item\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_101",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurant List item with the test id attribute value as \"restaurant-item\" should contain the HTML paragraph element with text content as restaurant cuisine name",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"restaurant-item\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_102",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurant List item with the test id attribute value as \"restaurant-item\" should contain the HTML paragraph element with text content as restaurant rating",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"restaurant-item\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_103",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurant List item with the test id attribute value as \"restaurant-item\" should contain the HTML heading element with text content as restaurant total reviews count",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"restaurant-item\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_104",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list item with test id attribute value as \"restaurant-item\" is clicked then the page should be navigated to restaurant details page",
+      "errorMessages": [
+        "\nExpected: \"/restaurant/2200043\"\nReceived: \"/restaurants/2200043\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_105",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the Restaurants List should be sorted by Highest when we select sort by filter value as \"Highest\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"option\" and name \"Highest\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_106",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the Restaurants List should be sorted by Lowest when the user select sort by filter value as \"Lowest\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"option\" and name \"Highest\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_107",
+      "evaluation_result": "INCORRECT",
+      "title": "When the HTML button element with test id attribute value as \"pagination-right-button\" is clicked then restaurants List of the second page with selected filter should be visible",
+      "errorMessages": [
+        "Error: Unable to find an element by: [testid=\"pagination-right-button\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_108",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurants list page number with test id attribute value as \"active-page-number\" should be increment by 1 when the HTML button element with test id=\"pagination-right-button\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"active-page-number\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_109",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the restaurants list page number with test id attribute value as \"active-page-number\" should be decrement by 1 when the HTML button element with test id attribute value as \"pagination-left-button\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"active-page-number\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_110",
+      "evaluation_result": "INCORRECT",
+      "title": "When the restaurant list API in the Home Route is successful, then the Restaurants List items should be displayed based on the pagination number and sort by filter",
+      "errorMessages": [
+        "Error: Unable to find an element by: [testid=\"pagination-right-button\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_2",
+      "evaluation_result": "CORRECT",
+      "title": "When \"/login\" is provided as a URL by an unauthenticated user in the Login Route, then the page should be navigated to Login Route and the Page should consist of an HTML image element with alt attribute value as \"website logo\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_3",
+      "evaluation_result": "INCORRECT",
+      "title": "When an authenticated user accesses the \"/login\" URL in the Login Route, then the page should be navigated to Home Route ",
+      "errorMessages": [
+        "\nExpected: \"/\"\nReceived: \"/login\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_4",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of an HTML form element",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_5",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of an HTML image element with alt text as \"website logo\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_6",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of an HTML main heading element with \"Tasty Kitchens\" as text content",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_7",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of an HTML main heading element with \"Login\" as text content",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_8",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of the HTML input element with the label text as USERNAME and type as \"text\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_9",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of the HTML input element with the label text as PASSWORD and type as \"password\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_10",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of an HTML button element with \"Login\" as text content",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_11",
+      "evaluation_result": "CORRECT",
+      "title": "Login Route should consist of an HTML image element with the given image and alt text as \"website login\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_12",
+      "evaluation_result": "CORRECT",
+      "title": "When the user provides a non-empty value in the HTML input element with the label text as \"USERNAME\", the text should be displayed in the HTML input element",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_13",
+      "evaluation_result": "CORRECT",
+      "title": "When the user provides a non-empty value in the HTML input element with the label text as \"PASSWORD\", the text should be displayed in the HTML input element",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_14",
+      "evaluation_result": "INCORRECT",
+      "title": "When a valid username is provided and the Login button is clicked with an empty password then the respective error message should be displayed using an HTML paragraph element",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Username or password is invalid/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_15",
+      "evaluation_result": "INCORRECT",
+      "title": "When a valid username is provided and the Login button is clicked with an empty password then the respective error message should be displayed and the page should not be navigated",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Username or password is invalid/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_16",
+      "evaluation_result": "INCORRECT",
+      "title": "When a invalid password is provided and the Login button is clicked with an empty username then the respective error message should be displayed and the page should not be navigated",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Username or password is invalid/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_17",
+      "evaluation_result": "INCORRECT",
+      "title": "When an empty username and empty password are provided and the Login button is clicked with an empty username then the respective error message should be displayed and the page should not be navigated",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Username or password is invalid/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_18",
+      "evaluation_result": "INCORRECT",
+      "title": "When an invalid username and valid password are provided and the Login button is clicked then the respective error message should be displayed and the page should not be navigated",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Username is not found/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_19",
+      "evaluation_result": "INCORRECT",
+      "title": "When a valid username and invalid password are provided and the Login button is clicked then the respective error message should be displayed and the page should not be navigated",
+      "errorMessages": [
+        "Error: Unable to find an element with the text: /Username and Password didn't match/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_20",
+      "evaluation_result": "INCORRECT",
+      "title": "When a valid credentials are provided and the Login button is clicked then the history.replace() method should be called with the argument \"/\"",
+      "errorMessages": [
+        "\nExpected: \"/\"\nNumber of calls: 0"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_21",
+      "evaluation_result": "CORRECT",
+      "title": "When a valid username and password are provided and the Login button is clicked then the page should be navigated to HomeRoute",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_22",
+      "evaluation_result": "CORRECT",
+      "title": "When a user successfully Login then the Cookies.set() method should be called with three arguments - \"jwt_token\" string as the first argument, JWT token value as the second argument, and expiry days as the third argument",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_23",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with cart items in local storage, then the page should consist of at least two HTML list items, and the cart items list should be rendered using a unique key as a prop for each food item ",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"listitem\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_24",
+      "evaluation_result": "CORRECT",
+      "title": "When an unauthenticated user access the \"/cart\" URL in Cart Route, then the page should be navigated to Login Route and the Login Route should consist of an HTML input element with label text as \"USERNAME\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_25",
+      "evaluation_result": "CORRECT",
+      "title": "When an authenticated user access the \"/cart\" URL in Cart Route, then the page should not be navigated to Login Route and the page should contain an HTML image element with alt text \"empty cart\" initially",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_26",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with cart items in local storage, then the page should consist of an HTML unordered list element to display the list of items in the Header",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"list\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_27",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with cart items in local storage, then the page should consist of at least 2 HTML list items",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"listitem\""
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_28",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with no cart items in local storage, then the page should consist of an HTML image element with alt text as \"empty cart\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"img\" and name `/empty cart/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_29",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with no cart items in local storage, then the page should contain an HTML main heading element with text content as \"No Order Yet!\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"heading\" and name `/No Order yet!/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_30",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with no cart items in local storage, then the page should contain an HTML paragraph element with text content as \"Your cart is empty. Add something from the menu.\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element with the text: /Your cart is empty. Add something from the menu./i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_31",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with no cart items in local storage, then the page should contain an HTML button element with text content as \"Order now\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name `/Order now/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_32",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with no cart items in local storage, then the page should contain an HTML button element as \"Order now\" wrapped with Link from \"react-router-dom\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"link\" and name `/Order now/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_33",
+      "evaluation_result": "INCORRECT",
+      "title": "When the Cart Route is opened with no cart items in local storage, then the page should be navigated to the home route when we click the HTML button element with \"Order Now\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name `/Order now/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_34",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the HTML container element with test id attribute value \"cartItem\" should contain the HTML image element with src value equal to the food item image URL",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_35",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the HTML container element with test id attribute value \"cartItem\" should contain the HTML main heading element with content as the name of the food item added to the cart ",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_36",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the HTML container element with test id attribute value \"cartItem\" should contain the HTML main paragraph element with content as the count of the food item added to cart",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_37",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the HTML container element with test id attribute value \"cartItem\" should contain the HTML button element with test id as \"decrement-quantity\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_38",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the HTML container element with test id attribute value \"cartItem\" should contain the HTML button element with test id as \"increment-quantity\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_39",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the HTML container element with test id attribute value \"cartItem\" should contain the HTML paragraph element with text content as the cost of the food item",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_40",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we remove all the food items in the restaurant Details Route by decreasing food items count then the HTML paragraph element with the text \"Your cart is empty. Add something from the menu.\" should be visible",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_41",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the Cart items List should contain the HTML main heading element with text content as \"Order Total:\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"heading\" and name `/Order Total:/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_42",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the Cart items List should contain the HTML paragraph element with test id attribute value as \"total-price\" with text content as total order cost",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"total-price\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_43",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the total order cost with the test id value as \"total-price\" should change accordingly when we change cart item quantities",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_44",
+      "evaluation_result": "CORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the Cart items List should contain the HTML button element with text content as \"Place Order\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_45",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the Cart Item quantity with the test id attribute value \"item-quantity\" should be incremented by one when the HTML button element with test id as \"increment-quantity\" is clicked",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_46",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, then the Cart Item quantity with the test id attribute value \"item-quantity\" should be decremented by one if the HTML button element with test id as \"decrement-quantity\" is clicked",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_47",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we remove all the food items in the restaurant Details Route by clicking on the HTML button element with the test id value \"decrement-quantity\" then the HTML image element with alt text as \"empty cart\" should be visible",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_48",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we remove all the food items in the restaurant Details Route by decreasing food items quantity to 0 then the HTML main heading element with the text \"No Order Yet!\" should be visible",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_49",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we remove all the food items in the restaurant Details Route by decreasing food items quantity to 0 then the HTML paragraph element with the text \"Your cart is empty. Add something from the menu.\" should be visible",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_50",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we remove all the food items in the restaurant Details Route by decreasing food items quantity to 0 then the HTML button element with \"Order Now\" should be visible",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element by: [testid=\"cartItem\"]"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_51",
+      "evaluation_result": "CORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we click the HTML button element with the text \"Place Order\" then the HTML main heading element with text as \"Payment Successful\" should be displayed",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_52",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we click the HTML button element with the text \"Place Order\" then the HTML paragraph element with text as \"Thank you for ordering Your payment is successfully completed.\" should be displayed",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an element with the text: /Thank you for ordering Your payment is successfully completed./i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible."
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_53",
+      "evaluation_result": "CORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we click the HTML button element with the text \"Place Order\" then the HTML button element with text as \"Go To Home\" should be displayed",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_54",
+      "evaluation_result": "CORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if we click the HTML button element with text content as \"Go To Home Page\" after the successful payment then the user should be navigated to the Home page",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_55",
+      "evaluation_result": "INCORRECT",
+      "title": "When the cart Route is opened with the cart items in local storage, if the payment is successful then the page should contain the HTML button element wrapped with the link from \"react-router-dom\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"link\" and name `/Go to Home Page/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_149",
+      "evaluation_result": "CORRECT",
+      "title": "When the \"/bad-path\" is provided as the URL in the browser tab, then the page should be navigated to NotFound Route and consist of an HTML image element with alt text as \"not found\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_150",
+      "evaluation_result": "CORRECT",
+      "title": "When the \"/bad-path\" is provided as the URL in the browser tab, then the page should be navigated to NotFound Route and consist of an HTML main heading element with the text content as \"Page Not Found\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_151",
+      "evaluation_result": "CORRECT",
+      "title": "When the \"/bad-path\" is provided as the URL in the browser tab, then the page should be navigated to NotFound Route and consist of an HTML paragraph element with the text content as \"we are sorry, the page you requested could not be found\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_152",
+      "evaluation_result": "CORRECT",
+      "title": "When the \"/bad-path\" is provided as the URL in the browser tab, then the page should be navigated to NotFound Route and consist of an HTML button element with the text content as \"Home Page\"",
+      "errorMessages": []
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_153",
+      "evaluation_result": "INCORRECT",
+      "title": "When the \"/bad-path\" is provided as the URL in the browser tab, then the page should be navigated to NotFound Route and consist of an HTML button element wrapped with the link from \"react-router-dom\"",
+      "errorMessages": [
+        "TestingLibraryElementError: Unable to find an accessible element with the role \"link\" and name `/Home Page/i`"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_154",
+      "evaluation_result": "CORRECT",
+      "title": "When the \"/bad-path\" is provided as the URL in the browser tab, then the page should be navigated to NotFound Route and if we click the HTML button element with the text \"Home Page\" then the page should be navigated to home route",
+      "errorMessages": []
+    },
+    {
+      "evaluation_result": "INCORRECT",
+      "errorMessages": [
+        "Error: Invariant failed: You should not use <Switch> outside a <Router>"
+      ]
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_56",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of HTML image element with alt as \"website-footer-logo\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_57",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of an HTML main heading element with text content as \"Tasty Kitchen\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_58",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of an HTML paragraph element with text content as \"The only thing we are serious about is food. Contact us on\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_59",
+      "evaluation_result": "INCORRECT",
+      "title": "JS code implementation for the Footer Component should use \"FaPinterestSquare\" from the \"react-icons\" package"
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_60",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of Pintrest social icon with test id value as \"pintrest-social-icon\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_61",
+      "evaluation_result": "INCORRECT",
+      "title": "JS code implementation for the Footer Component should use \"FaInstagram\" from the \"react-icons\" package"
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_62",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of Instagram social icon with test id value as \"instagram-social-icon\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_63",
+      "evaluation_result": "INCORRECT",
+      "title": "JS code implementation for the Footer Component should use \"FaTwitter\" from the \"react-icons\" package"
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_64",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of Twitter social icon with test id value as \"twitter-social-icon\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_65",
+      "evaluation_result": "INCORRECT",
+      "title": "JS code implementation for the Footer Component should use \"FaFacebookSquare\" from the \"react-icons\" package"
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_66",
+      "evaluation_result": "INCORRECT",
+      "title": "Footer Component should consist of Facebook social icon with test id value as \"facebook-social-icon\""
+    },
+    {
+      "test_case_id": "RJSCPP63AV_TEST_1",
+      "evaluation_result": "CORRECT",
+      "title": "Default test case",
+      "errorMessages": []
+    }
+  ]
+}

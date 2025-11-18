@@ -1,0 +1,97 @@
+.restaurant-details-page {
+  max-width: 900px;
+  margin: 36px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  padding: 30px;
+}
+
+.restaurant-header {
+  display: flex;
+  gap: 38px;
+  align-items: flex-start;
+  margin-bottom: 26px;
+}
+
+.restaurant-main-image {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 13px;
+}
+
+.restaurant-info h2 {
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+.restaurant-info p {
+  font-size: 16px;
+  margin: 2px 0;
+  color: #64748b;
+}
+
+.restaurant-meta {
+  display: flex;
+  gap: 40px;
+  margin-top: 16px;
+}
+.restaurant-meta strong {
+  color: #36b37e;
+  font-size: 20px;
+}
+
+.food-items-list-section h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.food-items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.food-item {
+  background: #f6f6f6;
+  border-radius: 10px;
+  padding: 16px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.food-item-img {
+  width: 110px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 9px;
+}
+.food-details h4 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+}
+.food-details p {
+  margin: 2px 0;
+  font-size: 15px;
+}
+
+.loader-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+.loader {
+  border: 6px solid #eee;
+  border-top: 6px solid #f7931e;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
