@@ -19,16 +19,10 @@ const Home = () => {
   const history = useHistory()
   const jwtToken = Cookies.get('jwt_token')
 
-  if (!jwtToken) {
-    return <Redirect to="/login" />
-  }
-
   const [offers, setOffers] = useState([])
   const [restaurants, setRestaurants] = useState([])
-
   const [offersLoading, setOffersLoading] = useState(true)
   const [restaurantsLoading, setRestaurantsLoading] = useState(true)
-
   const [sortBy, setSortBy] = useState('Lowest')
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
@@ -38,8 +32,9 @@ const Home = () => {
     history.replace('/login')
   }
 
-  // Fetch Offers
+  /* ---------------- FETCH OFFERS ---------------- */
   useEffect(() => {
+    if (!jwtToken) return
     const fetchOffers = async () => {
       const response = await fetch(
         'https://apis.ccbp.in/restaurants-list/offers',
@@ -51,12 +46,12 @@ const Home = () => {
       setOffers(data.offers)
       setOffersLoading(false)
     }
-
     fetchOffers()
   }, [jwtToken])
 
-  // Fetch Restaurants
+  /* ---------------- FETCH RESTAURANTS ---------------- */
   useEffect(() => {
+    if (!jwtToken) return
     const offset = (page - 1) * LIMIT
 
     const fetchRestaurants = async () => {
@@ -82,6 +77,11 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+  }
+
+  // ✔ Redirect handled safely AFTER hooks
+  if (!jwtToken) {
+    return <Redirect to="/login" />
   }
 
   return (

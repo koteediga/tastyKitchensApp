@@ -6,12 +6,8 @@ import './RestaurantDetail.css'
 
 const RestaurantDetail = () => {
   const {id} = useParams()
-  const jwtToken = Cookies.get('jwt_token')
   const history = useHistory()
-
-  if (jwtToken === undefined) {
-    return <Redirect to="/login" />
-  }
+  const jwtToken = Cookies.get('jwt_token')
 
   const [restaurant, setRestaurant] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -25,16 +21,21 @@ const RestaurantDetail = () => {
 
   /* ---------------- FETCH DETAILS ---------------- */
   useEffect(() => {
+    if (!jwtToken) return
+
     const fetchDetails = async () => {
       setLoading(true)
+
       const response = await fetch(
         `https://apis.ccbp.in/restaurants-list/${id}`,
         {headers: {Authorization: `Bearer ${jwtToken}`}},
       )
+
       const data = await response.json()
       setRestaurant(data)
       setLoading(false)
     }
+
     fetchDetails()
   }, [id, jwtToken])
 
@@ -44,7 +45,7 @@ const RestaurantDetail = () => {
     setCart(updatedCart)
   }
 
-  /* ---------------- ADD ---------------- */
+  /* ---------------- ADD ITEM ---------------- */
   const addItem = item => {
     const newItem = {
       id: item.id,
@@ -55,27 +56,27 @@ const RestaurantDetail = () => {
       quantity: 1,
     }
 
-    const updated = [...cart, newItem]
-    updateLocalStorage(updated)
+    updateLocalStorage([...cart, newItem])
   }
 
   /* ---------------- INCREMENT ---------------- */
-  const increment = id => {
-    const updated = cart.map(each =>
-      each.id === id ? {...each, quantity: each.quantity + 1} : each,
+  const increment = foodId => {
+    updateLocalStorage(
+      cart.map(each =>
+        each.id === foodId ? {...each, quantity: each.quantity + 1} : each,
+      ),
     )
-    updateLocalStorage(updated)
   }
 
   /* ---------------- DECREMENT ---------------- */
-  const decrement = id => {
-    const updated = cart
-      .map(each =>
-        each.id === id ? {...each, quantity: each.quantity - 1} : each,
-      )
-      .filter(each => each.quantity > 0)
-
-    updateLocalStorage(updated)
+  const decrement = foodId => {
+    updateLocalStorage(
+      cart
+        .map(each =>
+          each.id === foodId ? {...each, quantity: each.quantity - 1} : each,
+        )
+        .filter(each => each.quantity > 0),
+    )
   }
 
   const onLogout = () => {
@@ -83,12 +84,17 @@ const RestaurantDetail = () => {
     history.replace('/login')
   }
 
+  // 🔥 AUTH REDIRECT AFTER HOOKS (SAFE)
+  if (!jwtToken) {
+    return <Redirect to="/login" />
+  }
+
   if (loading) {
     return <div data-testid="restaurant-details-loader">Loading...</div>
   }
 
-  const getQty = id => {
-    const f = cart.find(item => item.id === id)
+  const getQty = foodId => {
+    const f = cart.find(item => item.id === foodId)
     return f ? f.quantity : 0
   }
 

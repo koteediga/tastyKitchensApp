@@ -1,9 +1,9 @@
 import {Switch, Route} from 'react-router-dom'
 import './App.css'
 
-import {LoginComponent} from './components/LoginComponent/LoginComponent'
-import {Home} from './components/HomeComponent/Home'
-import ProtectedRoute from './components/ProtectedComponent/ProtectedRoute'
+import LoginComponent from './components/LoginComponent/LoginComponent'
+import Home from './components/HomeComponent/Home'
+import {ProtectedRoute} from './components/ProtectedComponent/ProtectedRoute'
 import Cart from './components/Cart/Cart'
 import PageNotFound from './components/NotFound/NotFound'
 import RestaurantDetail from './components/RestaurantDetail/RestaurantDetail'
@@ -35,7 +35,7 @@ function App() {
           component={PaymentSucess}
         />
 
-        {/* 404 */}
+        {/* 404 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 */}
         <Route component={PageNotFound} />
       </Switch>
     </CartProvider>

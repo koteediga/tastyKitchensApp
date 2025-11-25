@@ -17,7 +17,9 @@ export const CartProvider = ({children}) => {
   useEffect(() => {
     try {
       localStorage.setItem('cartData', JSON.stringify(cart))
-    } catch {}
+    } catch (e) {
+      console.log(e)
+    }
   }, [cart])
 
   const addToCart = item => {

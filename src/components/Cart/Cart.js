@@ -7,13 +7,6 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 const Cart = () => {
-  const history = useHistory()
-
-  const jwtToken = Cookies.get('jwt_token')
-  if (jwtToken === undefined) {
-    return <Redirect to="/login" />
-  }
-
   const {
     cart,
     incrementQuantity,
@@ -25,7 +18,10 @@ const Cart = () => {
   const [localLoaded, setLocalLoaded] = useState(false)
   const [isPlaced, setIsPlaced] = useState(false)
 
-  /* ---------------- LOAD CART FROM LOCALSTORAGE ---------------- */
+  const history = useHistory()
+  const jwtToken = Cookies.get('jwt_token')
+
+  /* ---------------- LOAD CART FROM LOCAL STORAGE ---------------- */
   useEffect(() => {
     try {
       const stored = JSON.parse(localStorage.getItem('cartData')) || []
@@ -37,12 +33,14 @@ const Cart = () => {
     }
   }, [setCartFromOutside])
 
-  /* ---------------- SYNC CONTEXT -> LOCALSTORAGE ---------------- */
+  /* ---------------- SYNC CONTEXT → LOCAL STORAGE ---------------- */
   useEffect(() => {
     if (localLoaded) {
       try {
         localStorage.setItem('cartData', JSON.stringify(cart))
-      } catch {}
+      } catch (e) {
+        console.log(e)
+      }
     }
   }, [cart, localLoaded])
 
@@ -51,6 +49,17 @@ const Cart = () => {
     (acc, item) => acc + item.cost * item.quantity,
     0,
   )
+
+  /* ---------------- PLACE ORDER ---------------- */
+  const handlePlaceOrder = () => {
+    clearCart()
+    setIsPlaced(true)
+  }
+
+  /* ---------------- CONDITIONAL AUTH RENDER ---------------- */
+  if (!jwtToken) {
+    return <Redirect to="/login" />
+  }
 
   /* ---------------- EMPTY CART VIEW ---------------- */
   if (cart.length === 0 && !isPlaced) {
@@ -74,12 +83,6 @@ const Cart = () => {
         <Footer />
       </div>
     )
-  }
-
-  /* ---------------- PLACE ORDER ---------------- */
-  const handlePlaceOrder = () => {
-    clearCart()
-    setIsPlaced(true)
   }
 
   return (
