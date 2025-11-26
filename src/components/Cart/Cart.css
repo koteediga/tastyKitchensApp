@@ -33,7 +33,8 @@
 .cart-table {
   width: 100%;
 }
-.cart-table-head-row, .cart-table-row {
+.cart-table-head-row,
+.cart-table-row {
   display: flex;
   align-items: center;
   padding: 10px 0;
@@ -97,7 +98,7 @@
   margin-bottom: 20px;
 }
 
-.Payment-done{
-   height:80px;
-   width:80px;
+.Payment-done {
+  height: 80px;
+  width: 80px;
 }
