@@ -1,90 +1,97 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import './LoginComponent.css';
+import {useState} from 'react'
+import {Redirect, useHistory} from 'react-router-dom'
+import Cookies from 'js-cookie'
+import './LoginComponent.css'
 
-export const LoginComponent = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const history = useHistory();
+const LoginComponent = () => {
+  const history = useHistory()
 
-  const onchangeUsername = (e) => setUsername(e.target.value);
-  const onChangePassword = (e) => setPassword(e.target.value);
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const onSubmitSuccess = (jwtToken) => {
-    Cookies.set('jwt_token', jwtToken, { expires: 30 });
-    history.push('/'); // redirect after login
-  };
+  const jwtToken = Cookies.get('jwt_token')
 
-  const onSubmitFailure = () => {
-    setError("Please enter a valid Username and Password");
-  };
+  if (jwtToken !== undefined) {
+    return <Redirect to="/" />
+  }
 
-  const onFormValidation = async (e) => {
-    e.preventDefault();
-    const userDetails = { username, password };
+  const onSubmitForm = async event => {
+    event.preventDefault()
 
-    const response = await fetch('https://apis.ccbp.in/login', {
+    if (username === '' && password === '') {
+      setErrorMsg('Please enter username and password')
+      return
+    }
+    if (username !== '' && password === '') {
+      setErrorMsg('Please enter password')
+      return
+    }
+    if (username === '' && password !== '') {
+      setErrorMsg('Please enter username')
+      return
+    }
+
+    const userDetails = {username, password}
+    const url = 'https://apis.ccbp.in/login'
+    const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      onSubmitSuccess(data.jwt_token);
-    } else {
-      onSubmitFailure();
     }
-  };
+
+    const response = await fetch(url, options)
+    const data = await response.json()
+
+    if (response.ok === true) {
+      Cookies.set('jwt_token', data.jwt_token, {expires: 30})
+      history.replace('/')
+    } else {
+      setErrorMsg(data.error_msg)
+    }
+  }
 
   return (
-    <div className="login-route">
-      <div className="login-container">
+    <div className="login-container">
+      <img
+        src="https://res.cloudinary.com/dh8jgl2ue/image/upload/v1759582225/Group_7420_e4ynxt.png"
+        alt="website logo"
+        className="login-website-logo"
+      />
+
+      <h1 className="login-title">Tasty Kitchens</h1>
+      <h1 className="login-subtitle">Login</h1>
+
+      <div className="login-content">
         <img
-          src="https://res.cloudinary.com/dh8jgl2ue/image/upload/v1759582225/Group_7420_e4ynxt.png"
-          alt="website logo"
-          className="logo"
+          src="https://assets.ccbp.in/frontend/react-js/login-img.png"
+          alt="website login"
+          className="login-side-image"
         />
-        <h1 className="app-title">Tasty Kitchens</h1>
 
-        <form className="login-form" onSubmit={onFormValidation}>
-          <h1 className="login-heading">Login</h1>
-
-          <label htmlFor="username" className="input-label">USERNAME</label>
+        <form className="login-form" onSubmit={onSubmitForm}>
+          <label htmlFor="username">USERNAME</label>
           <input
             id="username"
             type="text"
-            placeholder="Username"
             value={username}
-            onChange={onchangeUsername}
-            className="input-field"
+            onChange={e => setUsername(e.target.value)}
           />
 
-          <label htmlFor="password" className="input-label">PASSWORD</label>
+          <label htmlFor="password">PASSWORD</label>
           <input
             id="password"
             type="password"
-            placeholder="Password"
             value={password}
-            onChange={onChangePassword}
-            className="input-field"
+            onChange={e => setPassword(e.target.value)}
           />
 
-          <button type="submit" className="login-button">Login</button>
+          <button type="submit">Login</button>
 
-          {error && <p className="error-message">*{error}</p>}
+          {errorMsg !== '' && <p className="error-message">{errorMsg}</p>}
         </form>
       </div>
-
-      <div className="login-split-right">
-        <img
-          src="https://res.cloudinary.com/dh8jgl2ue/image/upload/v1759583551/Rectangle_1456_ajcgte.png"
-          alt="website login"
-          className="login-food-image"
-        />
-      </div>
     </div>
-  );
-};
+  )
+}
+
+export default LoginComponent
