@@ -1,110 +1,369 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Cookies from "js-cookie";
-import "./RestaurantDetail.css";
-import { useCart } from "../../context/CartContext";
- import Header from "../Header/Header";
-import { Footer } from "../Footer/Footer";
+// import {useEffect, useState} from 'react'
+// import {useParams, Redirect} from 'react-router-dom'
+// import Cookies from 'js-cookie'
+// import Footer from '../Footer/Footer'
+// import Header from '../Header/Header'
+// import './RestaurantDetail.css'
 
-const jwtToken = Cookies.get("jwt_token");
-const requestOptions = {
-  headers: { Authorization: `Bearer ${jwtToken}` },
-};
+// const RestaurantDetail = () => {
+//   const {id} = useParams()
+//   const jwtToken = Cookies.get('jwt_token')
+
+//   const [restaurant, setRestaurant] = useState(null)
+//   const [loading, setLoading] = useState(true)
+//   const [cart, setCart] = useState(() => {
+//     try {
+//       return JSON.parse(localStorage.getItem('cartData')) || []
+//     } catch {
+//       return []
+//     }
+//   })
+
+//   /* ---------------- LOAD DETAILS ---------------- */
+//   useEffect(() => {
+//     if (!jwtToken) return undefined
+
+//     let isMounted = true
+
+//     const fetchDetails = async () => {
+//       try {
+//         setLoading(true)
+
+//         const response = await fetch(
+//           `https://apis.ccbp.in/restaurants-list/${id}`,
+//           {headers: {Authorization: `Bearer ${jwtToken}`}},
+//         )
+
+//         const data = await response.json()
+
+//         if (isMounted) {
+//           setRestaurant(data)
+//           setLoading(false)
+//         }
+//       } catch {
+//         if (isMounted) setLoading(false)
+//       }
+//     }
+
+//     fetchDetails()
+
+//     return () => {
+//       isMounted = false
+//     }
+//   }, [id, jwtToken])
+
+//   /* ---------------- CART HELPERS ---------------- */
+//   const updateLocalStorage = updatedCart => {
+//     localStorage.setItem('cartData', JSON.stringify(updatedCart))
+//     setCart(updatedCart)
+//   }
+
+//   const addItem = food => {
+//     const newItem = {
+//       id: food.id,
+//       name: food.name,
+//       cost: food.cost,
+//       imageUrl: food.image_url,
+//       rating: food.rating,
+//       quantity: 1,
+//     }
+//     updateLocalStorage([...cart, newItem])
+//   }
+
+//   const increment = foodId => {
+//     updateLocalStorage(
+//       cart.map(each =>
+//         each.id === foodId ? {...each, quantity: each.quantity + 1} : each,
+//       ),
+//     )
+//   }
+
+//   const decrement = foodId => {
+//     updateLocalStorage(
+//       cart
+//         .map(each =>
+//           each.id === foodId ? {...each, quantity: each.quantity - 1} : each,
+//         )
+//         .filter(each => each.quantity > 0),
+//     )
+//   }
+
+//   const getQty = foodId => {
+//     const found = cart.find(item => item.id === foodId)
+//     return found ? found.quantity : 0
+//   }
+
+//   /* ---------------- AUTH REDIRECT ---------------- */
+//   if (!jwtToken) return <Redirect to="/login" />
+
+//   if (loading)
+//     return <div data-testid="restaurant-details-loader">Loading...</div>
+
+//   /* ---------------- UI ---------------- */
+//   return (
+//     <div className="restaurant-details-page">
+//       <Header />
+
+//       <section className="restaurant-banner">
+//         <img src={restaurant.image_url} alt="restaurant" />
+//         <h1>{restaurant.name}</h1>
+//         <p>{restaurant.cuisine}</p>
+//         <p>{restaurant.location}</p>
+//         <p>{restaurant.rating}</p>
+//         <p>{restaurant.reviews_count}</p>
+//         <p>Cost for two</p>
+//         <p>{restaurant.cost_for_two}</p>
+//       </section>
+
+//       <ul className="food-items-list">
+//         {restaurant.food_items.map(food => {
+//           const qty = getQty(food.id)
+
+//           return (
+//             <li key={food.id} data-testid="foodItem">
+//               <img src={food.image_url} alt={food.name} />
+//               <h3>{food.name}</h3>
+//               <p>{food.cost}</p>
+//               <p>{food.rating}</p>
+
+//               {qty === 0 ? (
+//                 <button type="button" onClick={() => addItem(food)}>
+//                   Add
+//                 </button>
+//               ) : (
+//                 <div className="qty-controls">
+//                   <button
+//                     type="button"
+//                     data-testid="decrement-count"
+//                     onClick={() => decrement(food.id)}
+//                   >
+//                     -
+//                   </button>
+
+//                   <p data-testid="active-count">{qty}</p>
+
+//                   <button
+//                     type="button"
+//                     data-testid="increment-count"
+//                     onClick={() => increment(food.id)}
+//                   >
+//                     +
+//                   </button>
+//                 </div>
+//               )}
+//             </li>
+//           )
+//         })}
+//       </ul>
+
+//       <Footer />
+//     </div>
+//   )
+// }
+
+// export default RestaurantDetail
+import React, {useEffect, useState} from 'react'
+import {useParams, Redirect} from 'react-router-dom'
+import Cookies from 'js-cookie'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import './RestaurantDetail.css'
 
 const RestaurantDetail = () => {
-  const { restaurantId } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const params = useParams()
+  const restaurantId = params.id
 
-  const { cart, addToCart, incrementQuantity, decrementQuantity } = useCart();
+  const jwtToken = Cookies.get('jwt_token')
 
-  useEffect(() => {
-    async function fetchRestaurant() {
-      setLoading(true);
-      const response = await fetch(
-        `https://apis.ccbp.in/restaurants-list/${restaurantId}`,
-        requestOptions
-      );
-      const data = await response.json();
-      setRestaurant(data);
-      setLoading(false);
+  const [restaurant, setRestaurant] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('cartData')) || []
+    } catch {
+      return []
     }
-    fetchRestaurant();
-  }, [restaurantId]);
+  })
 
-  if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
-  if (!restaurant) return <h3 style={{ textAlign: "center" }}>No data found.</h3>;
+  /* ---------------- FETCH DETAILS ---------------- */
+  useEffect(() => {
+    if (!jwtToken) return
+
+    let isMounted = true
+
+    const getDetails = async () => {
+      try {
+        const response = await fetch(
+          `https://apis.ccbp.in/restaurants-list/${restaurantId}`,
+          {
+            headers: {Authorization: `Bearer ${jwtToken}`},
+          },
+        )
+
+        const data = await response.json()
+
+        if (isMounted) {
+          setRestaurant(data)
+          setLoading(false)
+        }
+      } catch {
+        if (isMounted) setLoading(false)
+      }
+    }
+
+    getDetails()
+
+    return () => {
+      isMounted = false
+    }
+  }, [restaurantId, jwtToken])
+
+  /* ---------------- CART FUNCTIONS ---------------- */
+
+  const saveCart = updatedCart => {
+    localStorage.setItem('cartData', JSON.stringify(updatedCart))
+    setCart(updatedCart)
+  }
+
+  const addItem = food => {
+    const updated = [
+      ...cart,
+      {
+        id: food.id,
+        name: food.name,
+        cost: food.cost,
+        imageUrl: food.image_url,
+        rating: food.rating,
+        quantity: 1,
+      },
+    ]
+    saveCart(updated)
+  }
+
+  const increment = foodId => {
+    const updated = cart.map(item =>
+      item.id === foodId ? {...item, quantity: item.quantity + 1} : item,
+    )
+    saveCart(updated)
+  }
+
+  const decrement = foodId => {
+    const updated = cart
+      .map(item =>
+        item.id === foodId ? {...item, quantity: item.quantity - 1} : item,
+      )
+      .filter(item => item.quantity > 0)
+
+    saveCart(updated)
+  }
+
+  const getQty = foodId => {
+    const found = cart.find(item => item.id === foodId)
+    return found ? found.quantity : 0
+  }
+
+  if (!jwtToken) return <Redirect to="/login" />
+
+  if (loading) {
+    return (
+      <div className="loader-cont" data-testid="restaurant-details-loader">
+        <div className="loader" />
+      </div>
+    )
+  }
+
+  const {
+    image_url,
+    name,
+    cuisine,
+    location,
+    rating,
+    reviews_count,
+    cost_for_two,
+    food_items,
+  } = restaurant
 
   return (
-    <div>
-      <div>
-        <Header />
-      </div>
-    <div className="restaurant-detail-wrapper">
-      {/* Banner Section */}
-      <div className="restaurant-banner">
-        <img src={restaurant.image_url} alt={restaurant.name} className="banner-image" />
-        <div className="banner-info">
-          <h1 className="restaurant-name">{restaurant.name}</h1>
-          <p className="cuisine">{restaurant.cuisine}</p>
-          <p className="location">{restaurant.location}</p>
-          <div className="rating-cost">
-            <span style={{ marginRight: "1.5rem" }}>⭐ {restaurant.rating}</span>
-            <span>Open: {restaurant.opens_at}</span>
-            <span style={{ marginLeft: "1.5rem" }}>Menu Items: {restaurant.items_count}</span>
+    <>
+      <Header />
+
+      <div className="restaurant-detail-wrapper">
+        {/* BANNER */}
+        <div className="restaurant-banner">
+          <img src={image_url} alt="restaurant" className="banner-image" />
+
+          <div className="banner-info">
+            <h2 className="restaurant-name">{name}</h2>
+            <p className="cuisine">{cuisine}</p>
+            <p className="location">{location}</p>
+
+            <div className="rating-cost">
+              ⭐ {rating} | {reviews_count}+ Reviews | ₹{cost_for_two} Cost for
+              Two
+            </div>
           </div>
         </div>
+
+        {/* MENU */}
+        <h2 style={{marginBottom: '20px'}}>Menu</h2>
+
+        <ul className="menu-list">
+          {food_items.map(food => {
+            const qty = getQty(food.id)
+
+            return (
+              <li key={food.id} className="menu-card" data-testid="foodItem">
+                <img
+                  src={food.image_url}
+                  alt={food.name}
+                  className="menu-image"
+                />
+
+                <div className="menu-info">
+                  <h3>{food.name}</h3>
+                  <p>₹ {food.cost}</p>
+                  <span>{food.rating} ⭐</span>
+
+                  {qty === 0 ? (
+                    <button
+                      type="button"
+                      className="add-btn"
+                      onClick={() => addItem(food)}
+                    >
+                      Add
+                    </button>
+                  ) : (
+                    <div className="qty-controls">
+                      <button
+                        type="button"
+                        data-testid="decrement-count"
+                        onClick={() => decrement(food.id)}
+                      >
+                        -
+                      </button>
+
+                      <p data-testid="active-count">{qty}</p>
+
+                      <button
+                        type="button"
+                        data-testid="increment-count"
+                        onClick={() => increment(food.id)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </li>
+            )
+          })}
+        </ul>
       </div>
 
-      {/* Menu Grid Section */}
-      <div className="menu-list">
-        {restaurant.food_items.map((item) => {
-          const cartItem = cart.find((ci) => ci.id === item.id);
-          return (
-            <div key={item.id} className="menu-card">
-              <img src={item.image_url} alt={item.name} className="menu-image" />
-              <div className="menu-info">
-                <h3>{item.name}</h3>
-                <p>₹{item.cost}</p>
-                <span>{item.food_type}</span>
-                {!cartItem ? (
-                  <button
-                    className="add-btn"
-                    onClick={() =>
-                      addToCart({
-                        cost: item.cost,
-                        quantity: 1,
-                        id: item.id,
-                        imageUrl: item.image_url,
-                        name: item.name,
-                      })
-                    }
-                  >
-                    Add
-                  </button>
-                ) : (
-                  <div>
-                    <button
-                      data-testid="decrement-quantity"
-                      onClick={() => decrementQuantity(item.id)}
-                    >−</button>
-                    <span data-testid="item-quantity">{cartItem.quantity}</span>
-                    <button
-                      data-testid="increment-quantity"
-                      onClick={() => incrementQuantity(item.id)}
-                    >+</button>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-    <div>
       <Footer />
-    </div>
-    </div>
-  );
-};
-export default RestaurantDetail;
+    </>
+  )
+}
+
+export default RestaurantDetail
