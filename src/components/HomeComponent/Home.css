@@ -1,99 +1,150 @@
-.restaurant-details-page {
-  max-width: 900px;
-  margin: 36px auto;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-  padding: 30px;
-}
-
-.restaurant-header {
-  display: flex;
-  gap: 38px;
-  align-items: flex-start;
-  margin-bottom: 26px;
-}
-
-.restaurant-main-image {
-  width: 220px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 13px;
-}
-
-.restaurant-info h2 {
-  margin-bottom: 8px;
-  font-size: 32px;
-}
-
-.restaurant-info p {
-  font-size: 16px;
-  margin: 2px 0;
-  color: #64748b;
-}
-
-.restaurant-meta {
-  display: flex;
-  gap: 40px;
-  margin-top: 16px;
-}
-.restaurant-meta strong {
-  color: #36b37e;
-  font-size: 20px;
-}
-
-.food-items-list-section h3 {
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
-.food-items-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.food-item {
-  background: #f6f6f6;
-  border-radius: 10px;
-  padding: 16px;
-  width: 200px;
+/* ---------- HOME CONTAINER ---------- */
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.food-item-img {
-  width: 110px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 9px;
-}
-.food-details h4 {
-  margin: 0 0 4px 0;
-  font-size: 18px;
-}
-.food-details p {
-  margin: 2px 0;
-  font-size: 15px;
 }
 
-.loader-cont {
+/* ---------- OFFER SLIDER ---------- */
+.offer-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ---------- HEADINGS ---------- */
+.home-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 30px;
+  padding-left: 30px;
+}
+
+.home-container p {
+  font-size: 14px;
+  color: #64748b;
+  padding-left: 30px;
+}
+
+/* ---------- SORT SECTION ---------- */
+.sort-container {
+  width: 90%;
+  margin: 10px auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  min-height: 300px;
+  gap: 10px;
 }
-.loader {
-  border: 6px solid #eee;
-  border-top: 6px solid #f7931e;
+
+.sort-container select {
+  padding: 7px 12px;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  color: #334155;
+}
+
+/* ---------- RESTAURANT LIST ---------- */
+.restaurant-list {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 25px auto;
+  list-style-type: none;
+  padding: 0;
+}
+
+.restaurant-list li {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.restaurant-list li:hover {
+  transform: scale(1.03);
+}
+
+.restaurant-list img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.restaurant-list h3 {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 10px;
+}
+
+.restaurant-list p {
+  margin: 5px 10px;
+  color: #475569;
+  font-size: 14px;
+}
+
+/* ---------- STAR RATING ---------- */
+.restaurant-list p:nth-of-type(2) {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* ---------- PAGINATION ---------- */
+.pagination {
+  margin: 20px auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination button {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  animation: spin 1.2s linear infinite;
+  border: 1px solid #d1d5db;
+  background-color: #f8fafc;
+  font-size: 18px;
+  cursor: pointer;
+  color: #1e293b;
 }
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.pagination p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .restaurant-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .offer-img {
+    height: 200px;
   }
 }

@@ -1,45 +1,33 @@
-import {Switch, Route} from 'react-router-dom'
-import './App.css'
-
+import {Switch, Route, Redirect} from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedComponent/ProtectedRoute'
 import LoginComponent from './components/LoginComponent/LoginComponent'
 import Home from './components/HomeComponent/Home'
-import {ProtectedRoute} from './components/ProtectedComponent/ProtectedRoute'
-import Cart from './components/Cart/Cart'
-import PageNotFound from './components/NotFound/NotFound'
 import RestaurantDetail from './components/RestaurantDetail/RestaurantDetail'
-import PaymentSucess from './components/PaymentSucess/PaymentSucess'
+import Cart from './components/Cart/Cart'
+import NotFound from './components/NotFound/NotFound'
 
-import {CartProvider} from './context/CartContext'
+import './App.css'
 
-function App() {
-  return (
-    <CartProvider>
-      <Switch>
-        {/* LOGIN */}
-        <Route exact path="/login" component={LoginComponent} />
+const App = () => (
+  <Switch>
+    {/* LOGIN ROUTE */}
+    <Route exact path="/login" component={LoginComponent} />
 
-        {/* HOME ROUTE (Protected by ProtectedRoute) */}
-        <ProtectedRoute exact path="/" component={Home} />
+    {/* HOME ROUTE (PROTECTED) */}
+    <ProtectedRoute exact path="/" component={Home} />
 
-        {/* ⚠️ DO NOT USE ProtectedRoute HERE  
-            CCbp requires authentication check INSIDE the component */}
-        <Route exact path="/restaurant/:id" component={RestaurantDetail} />
+    {/* RESTAURANT DETAILS ROUTE (PROTECTED) */}
+    <ProtectedRoute exact path="/restaurant/:id" component={RestaurantDetail} />
 
-        {/* ⚠️ SAME: Cart must NOT use ProtectedRoute */}
-        <Route exact path="/cart" component={Cart} />
+    {/* CART ROUTE (PROTECTED) */}
+    <ProtectedRoute exact path="/cart" component={Cart} />
 
-        {/* OPTIONAL PROTECTED ROUTE */}
-        <ProtectedRoute
-          exact
-          path="/payment-success"
-          component={PaymentSucess}
-        />
+    {/* NOT FOUND ROUTE */}
+    <Route path="/not-found" component={NotFound} />
 
-        {/* 404 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 */}
-        <Route component={PageNotFound} />
-      </Switch>
-    </CartProvider>
-  )
-}
+    {/* INVALID URL REDIRECT */}
+    <Redirect to="/not-found" />
+  </Switch>
+)
 
 export default App

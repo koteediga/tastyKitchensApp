@@ -1,0 +1,41 @@
+.payment-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.success-container {
+  text-align: center;
+  padding-top: 90px;
+}
+
+.success-icon {
+  width: 70px;
+  margin-bottom: 24px;
+}
+
+.success-heading {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.success-text {
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+.success-btn {
+  background-color: #f7931e;
+  border: none;
+  padding: 10px 26px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.success-btn:hover {
+  background-color: #d97706;
+}

@@ -1,36 +1,20 @@
-import React, {useState} from 'react'
-import {Redirect, useHistory} from 'react-router-dom'
+import {useState} from 'react'
+import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './LoginComponent.css'
 
-const LoginComponent = () => {
-  const history = useHistory()
-
+const LoginComponent = props => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
   const jwtToken = Cookies.get('jwt_token')
-
   if (jwtToken !== undefined) {
     return <Redirect to="/" />
   }
 
   const onSubmitForm = async event => {
     event.preventDefault()
-
-    if (username === '' && password === '') {
-      setErrorMsg('Please enter username and password')
-      return
-    }
-    if (username !== '' && password === '') {
-      setErrorMsg('Please enter password')
-      return
-    }
-    if (username === '' && password !== '') {
-      setErrorMsg('Please enter username')
-      return
-    }
 
     const userDetails = {username, password}
 
@@ -45,6 +29,7 @@ const LoginComponent = () => {
 
     if (response.ok === true) {
       Cookies.set('jwt_token', data.jwt_token, {expires: 30})
+      const {history} = props
       history.replace('/')
     } else {
       setErrorMsg(data.error_msg)
@@ -52,36 +37,53 @@ const LoginComponent = () => {
   }
 
   return (
-    <div className="login-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-        alt="website login"
-        className="login-website-logo"
-      />
+    <div className="login-page">
+      <div className="login-left">
+        <div className="login-card">
+          <img
+            src="https://res.cloudinary.com/dh8jgl2ue/image/upload/v1759582225/Group_7420_e4ynxt.png"
+            alt="website logo"
+            className="login-logo"
+          />
+          <h1 className="login-title">Tasty Kitchens</h1>
 
-      <h1 className="login-title">Tasty Kitchens</h1>
+          <h2 className="login-heading">Login</h2>
 
-      <form className="login-form" onSubmit={onSubmitForm}>
-        <label htmlFor="username">USERNAME</label>
-        <input
-          id="username"
-          type="text"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
+          <form onSubmit={onSubmitForm} className="login-form">
+            <label htmlFor="username">USERNAME</label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              placeholder="Username"
+            />
+
+            <label htmlFor="password">PASSWORD</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+
+            <button type="submit" className="login-btn">
+              Login
+            </button>
+
+            {errorMsg !== '' && <p className="error-msg">*{errorMsg}</p>}
+          </form>
+        </div>
+      </div>
+
+      <div className="login-right">
+        <img
+          className="login-img"
+          alt="website login"
+          src="https://res.cloudinary.com/dh8jgl2ue/image/upload/v1759583551/Rectangle_1456_ajcgte.png"
         />
-
-        <label htmlFor="password">PASSWORD</label>
-        <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-
-        <button type="submit">Login</button>
-
-        {errorMsg !== '' && <p className="error-message">{errorMsg}</p>}
-      </form>
+      </div>
     </div>
   )
 }

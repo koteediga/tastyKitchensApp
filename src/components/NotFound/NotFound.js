@@ -1,27 +1,19 @@
-import React from 'react'
-import {useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './NotFound.css'
 
-const NotFound = () => {
-  const history = useHistory()
-  return (
-    <div className="page-not-found">
-      <img
-        src="https://res.cloudinary.com/dh8jgl2ue/image/upload/v1759585064/erroring_1_z2iuja.png"
-        alt="not found" // required by test cases
-        className="not-found-image"
-      />
-      <h1 className="not-found-title">Page Not Found</h1>
-      <p className="not-found-desc">
-        We are sorry, the page you requested could not be found.
-        <br />
-        Please go back to the homepage
-      </p>
-      <button className="home-page-btn" onClick={() => history.push('/')}>
-        Home Page
-      </button>
-    </div>
-  )
-}
+const NotFound = () => (
+  <div className="notfound-container">
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/not-found-img.png"
+      alt="not found"
+      className="notfound-img"
+    />
+    <h1>Page Not Found</h1>
+    <p>we are sorry, the page you requested could not be found</p>
+    <Link to="/">
+      <button type="button">Home Page</button>
+    </Link>
+  </div>
+)
 
 export default NotFound

@@ -15,13 +15,11 @@ const Footer = () => (
         alt="website-footer-logo"
         className="footer-logo"
       />
-      <h2 className="footer-title">Tasty Kitchens</h2>
+      <h1 className="footer-title">Tasty Kitchen</h1>
     </div>
 
     <p className="footer-caption">
-      The only thing we are serious about is food.
-      <br />
-      Contact us on
+      The only thing we are serious about is food. Contact us on
     </p>
 
     <div className="footer-socials">

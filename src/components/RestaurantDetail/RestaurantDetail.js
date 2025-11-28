@@ -1,186 +1,196 @@
-import React, {useEffect, useState} from 'react'
-import {useParams, Link, Redirect, useHistory} from 'react-router-dom'
+import {useEffect, useState} from 'react'
+import {useParams, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import './RestaurantDetail.css'
 
 const RestaurantDetail = () => {
   const {id} = useParams()
-  const history = useHistory()
   const jwtToken = Cookies.get('jwt_token')
 
   const [restaurant, setRestaurant] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  // Load cart from LocalStorage
   const [cart, setCart] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem('cartData')) || []
+      const stored = localStorage.getItem('cartData')
+      return stored ? JSON.parse(stored) : []
     } catch {
       return []
     }
   })
 
-  /* ---------------- FETCH DETAILS ---------------- */
+  /* ---------------- FETCH RESTAURANT DETAILS ---------------- */
   useEffect(() => {
     if (!jwtToken) return
 
-    const fetchDetails = async () => {
+    let isMounted = true
+
+    const fetchData = async () => {
       setLoading(true)
+      try {
+        const response = await fetch(
+          `https://apis.ccbp.in/restaurants-list/${id}`,
+          {
+            headers: {Authorization: `Bearer ${jwtToken}`},
+          },
+        )
 
-      const response = await fetch(
-        `https://apis.ccbp.in/restaurants-list/${id}`,
-        {headers: {Authorization: `Bearer ${jwtToken}`}},
-      )
+        const data = await response.json()
 
-      const data = await response.json()
-      setRestaurant(data)
-      setLoading(false)
+        if (isMounted) {
+          setRestaurant(data)
+          setLoading(false)
+        }
+      } catch {
+        if (isMounted) setLoading(false)
+      }
     }
 
-    fetchDetails()
+    fetchData()
+
+    return () => {
+      isMounted = false
+    }
   }, [id, jwtToken])
 
-  /* ---------------- UPDATE LOCAL STORAGE ---------------- */
-  const updateLocalStorage = updatedCart => {
-    localStorage.setItem('cartData', JSON.stringify(updatedCart))
-    setCart(updatedCart)
+  /* ---------------- CART MANAGEMENT ---------------- */
+  const saveCart = newCart => {
+    localStorage.setItem('cartData', JSON.stringify(newCart))
+    setCart(newCart)
   }
 
-  /* ---------------- ADD ITEM ---------------- */
-  const addItem = item => {
+  const addItem = food => {
     const newItem = {
-      id: item.id,
-      name: item.name,
-      cost: item.cost,
-      imageUrl: item.image_url,
-      rating: item.rating,
+      id: food.id,
+      name: food.name,
+      cost: food.cost,
+      imageUrl: food.image_url,
+      rating: food.rating,
       quantity: 1,
     }
-
-    updateLocalStorage([...cart, newItem])
+    saveCart([...cart, newItem])
   }
 
-  /* ---------------- INCREMENT ---------------- */
   const increment = foodId => {
-    updateLocalStorage(
-      cart.map(each =>
-        each.id === foodId ? {...each, quantity: each.quantity + 1} : each,
-      ),
+    const updated = cart.map(item =>
+      item.id === foodId ? {...item, quantity: item.quantity + 1} : item,
     )
+    saveCart(updated)
   }
 
-  /* ---------------- DECREMENT ---------------- */
   const decrement = foodId => {
-    updateLocalStorage(
-      cart
-        .map(each =>
-          each.id === foodId ? {...each, quantity: each.quantity - 1} : each,
-        )
-        .filter(each => each.quantity > 0),
-    )
-  }
+    const updated = cart
+      .map(item =>
+        item.id === foodId ? {...item, quantity: item.quantity - 1} : item,
+      )
+      .filter(item => item.quantity > 0)
 
-  const onLogout = () => {
-    Cookies.remove('jwt_token')
-    history.replace('/login')
-  }
-
-  // 🔥 AUTH REDIRECT AFTER HOOKS (SAFE)
-  if (!jwtToken) {
-    return <Redirect to="/login" />
-  }
-
-  if (loading) {
-    return <div data-testid="restaurant-details-loader">Loading...</div>
+    saveCart(updated)
   }
 
   const getQty = foodId => {
-    const f = cart.find(item => item.id === foodId)
-    return f ? f.quantity : 0
+    const found = cart.find(item => item.id === foodId)
+    return found ? found.quantity : 0
   }
 
+  if (!jwtToken) return <Redirect to="/login" />
+
+  if (loading) {
+    return (
+      <div className="loader-cont" data-testid="restaurant-details-loader">
+        <div className="loader" />
+      </div>
+    )
+  }
+
+  const {
+    image_url,
+    name,
+    cuisine,
+    location,
+    rating,
+    reviews_count,
+    cost_for_two,
+    food_items,
+  } = restaurant
+
   return (
-    <div className="restaurant-details-page">
-      {/* HEADER */}
-      <header className="restaurant-header">
-        <Link to="/">
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-            alt="website logo"
-          />
-        </Link>
+    <>
+      <Header />
 
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
-          <li>Offers</li>
-          <li>Contact</li>
-        </ul>
+      <div className="restaurant-detail-wrapper">
+        <div className="restaurant-banner">
+          <img src={image_url} alt="restaurant" className="banner-image" />
 
-        <button type="button" onClick={onLogout}>
-          Logout
-        </button>
-      </header>
+          <div className="banner-info">
+            <h2 className="restaurant-name">{name}</h2>
+            <p className="cuisine">{cuisine}</p>
+            <p className="location">{location}</p>
+            <p>{rating}</p>
+            <p>{reviews_count}</p>
+            <p>Cost for two</p>
+            <p>{cost_for_two}</p>
+          </div>
+        </div>
 
-      {/* BANNER */}
-      <section>
-        <img src={restaurant.image_url} alt="restaurant" />
-        <h1>{restaurant.name}</h1>
-        <p>{restaurant.cuisine}</p>
-        <p>{restaurant.location}</p>
-        <p>{restaurant.rating}</p>
-        <p>{restaurant.reviews_count}</p>
-        <p>Cost for two</p>
-        <p>{restaurant.cost_for_two}</p>
-      </section>
+        <ul className="menu-list">
+          {food_items.map(food => {
+            const qty = getQty(food.id)
 
-      {/* FOOD ITEMS */}
-      <ul className="food-items-list">
-        {restaurant.food_items.map(item => {
-          const qty = getQty(item.id)
+            return (
+              <li key={food.id} className="menu-card" data-testid="foodItem">
+                <img
+                  src={food.image_url}
+                  alt={food.name}
+                  className="menu-image"
+                />
 
-          return (
-            <li key={item.id} data-testid="foodItem">
-              <img src={item.image_url} alt={item.name} />
-              <h3>{item.name}</h3>
-              <p>{item.cost}</p>
-              <p>{item.rating}</p>
+                <div className="menu-info">
+                  <h3>{food.name}</h3>
+                  <p>{food.cost}</p>
+                  <p>{food.rating}</p>
 
-              {qty === 0 ? (
-                <button type="button" onClick={() => addItem(item)}>
-                  Add
-                </button>
-              ) : (
-                <div className="qty-controls">
-                  <button
-                    type="button"
-                    data-testid="decrement-count"
-                    onClick={() => decrement(item.id)}
-                  >
-                    -
-                  </button>
+                  {qty === 0 ? (
+                    <button type="button" onClick={() => addItem(food)}>
+                      Add
+                    </button>
+                  ) : (
+                    <div className="qty-controls">
+                      {qty > 0 && (
+                        <button
+                          type="button"
+                          data-testid="decrement-count"
+                          onClick={() => decrement(food.id)}
+                        >
+                          -
+                        </button>
+                      )}
 
-                  <p data-testid="active-count">{qty}</p>
+                      {qty > 0 && <p data-testid="active-count">{qty}</p>}
 
-                  <button
-                    type="button"
-                    data-testid="increment-count"
-                    onClick={() => increment(item.id)}
-                  >
-                    +
-                  </button>
+                      {qty > 0 && (
+                        <button
+                          type="button"
+                          data-testid="increment-count"
+                          onClick={() => increment(food.id)}
+                        >
+                          +
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
-              )}
-            </li>
-          )
-        })}
-      </ul>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
 
       <Footer />
-    </div>
+    </>
   )
 }
 
