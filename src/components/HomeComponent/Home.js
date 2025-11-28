@@ -357,7 +357,7 @@ const Home = () => {
         </ul>
       )}
 
-      {/* PAGINATION */}
+     
       <div className="pagination">
         <button
           data-testid="pagination-left-button"
@@ -367,7 +367,7 @@ const Home = () => {
         >
           &lt;
         </button>
-
+      
         <p data-testid="active-page-number">{page}</p>
 
         <button
